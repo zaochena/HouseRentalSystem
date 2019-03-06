@@ -38,12 +38,14 @@
 		<aop:pointcut expression="execution(* com.house.service.*.*(..))" id="txPointCut"/>
 		<aop:advisor advice-ref="txAdvice" pointcut-ref="txPointCut"/>
 	</aop:config>
-	
+
+	<!--Bean的映射文件-->
 	<bean id="sqlSessionFactoryBean" class="org.mybatis.spring.SqlSessionFactoryBean"
 		p:dataSource-ref="ds"
 		p:mapperLocations="classpath:com/house/mapper/*.xml"
 	/>
-		
+
+	<!--mapper文件位置-->
 	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer"
 		p:basePackage="com.house.dao"
 	/>		
