@@ -46,13 +46,13 @@ public class UserController {
 	@ResponseBody
 	public String updateUserPwd(String id,String newPwd,String oldPwd) {
 		Users oldUser = new Users();
-		oldUser.setuID(Integer.parseInt(id));
-		oldUser.setuPassword(oldPwd);
+		oldUser.setUid(Integer.parseInt(id));
+		oldUser.setPassword(oldPwd);
 		Users checkUser = service.checkOldPwd(oldUser);
 		if(checkUser!=null) {
 			Users newUser = new Users();
-			newUser.setuID(Integer.parseInt(id));
-			newUser.setuPassword(newPwd);
+			newUser.setUid(Integer.parseInt(id));
+			newUser.setPassword(newPwd);
 			int n = service.updateUserPwd(newUser);
 			if(n>0) {
 				return "OK";

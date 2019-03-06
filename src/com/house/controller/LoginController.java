@@ -3,6 +3,7 @@ package com.house.controller;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -13,22 +14,22 @@ import com.house.service.IUserService;
 
 @Controller
 public class LoginController {
-	
 	@Autowired
 	private IUserService mapper;
-	
+
 	@RequestMapping("/login")
 	@ResponseBody
 	public String toCustomerPage(String username,String password,HttpServletRequest req ) {
 		Users user = new Users();
-		user.setuName(username);
-		user.setuPassword(password);
+		user.setUname(username);
+		user.setPassword(password);
 		Users loginUser = mapper.login(user);
 		if(loginUser!=null) {
 			req.getSession().setAttribute("loginUser", loginUser);
 			return "OK";
 		}
 		return "FAIL";
+
 	}
 	
 	@RequestMapping("/signout")

@@ -33,41 +33,41 @@ public class OrderController {
 		return "updatepwd.jsp";
 	}
 	
-	@RequestMapping("/addOrder")
-	@ResponseBody
-	public String addOrder(String id,HttpServletRequest request) {
-		Users u = (Users) request.getSession().getAttribute("loginUser");
-		try {
-			Order order = new Order();
-			order.sethID(Integer.parseInt(id));
-			order.setOrderUser(u.getuNickName());
-			order.setuID(u.getuID());
-			int n = sevice.addOrder(order);
-			if(n>0) {
-				return "OK";
-			}
-		} catch (NumberFormatException e) {
-			e.printStackTrace();
-		}
-		return "FAIL";
-	}
+//	@RequestMapping("/addOrder")
+//	@ResponseBody
+//	public String addOrder(String id,HttpServletRequest request) {
+//		Users u = (Users) request.getSession().getAttribute("loginUser");
+//		try {
+//			Order order = new Order();
+//			order.sethID(Integer.parseInt(id));
+//			order.setOrderUser(u.getuNickName());
+//			order.setuID(u.getuID());
+//			int n = sevice.addOrder(order);
+//			if(n>0) {
+//				return "OK";
+//			}
+//		} catch (NumberFormatException e) {
+//			e.printStackTrace();
+//		}
+//		return "FAIL";
+//	}
 	
-	@RequestMapping("/myOrderInfo")
-	@ResponseBody
-	public UserOrderData findAllOrder(int page,int limit,HttpServletRequest request){
-		Page p = new Page();
-		p.setPage((page - 1) * limit);
-		p.setLimit(limit);
-		Users u = (Users) request.getSession().getAttribute("loginUser");
-		p.setuID(u.getuID());
-		UserOrderData uod = new UserOrderData();
-		List<UserOrder> order = sevice.findAllOrder(p);
-		uod.setCode(0);
-		uod.setCount(sevice.getOrderCount(u.getuID()));
-		uod.setData(order);
-		uod.setMsg("200");
-		return  uod;
-	}
+//	@RequestMapping("/myOrderInfo")
+//	@ResponseBody
+//	public UserOrderData findAllOrder(int page,int limit,HttpServletRequest request){
+//		Page p = new Page();
+//		p.setPage((page - 1) * limit);
+//		p.setLimit(limit);
+//		Users u = (Users) request.getSession().getAttribute("loginUser");
+//		p.setuID(u.getuID());
+//		UserOrderData uod = new UserOrderData();
+//		List<UserOrder> order = sevice.findAllOrder(p);
+//		uod.setCode(0);
+//		uod.setCount(sevice.getOrderCount(u.getuID()));
+//		uod.setData(order);
+//		uod.setMsg("200");
+//		return  uod;
+//	}
 	
 	@RequestMapping("/deleteOrder")
 	@ResponseBody

@@ -10,8 +10,8 @@
 	</resultMap>
 	<!-- 登录 -->
 	<select id="login" resultMap="BasicMap" parameterType="com.house.entity.Users">
-		select u_id,u_name,u_password,u_phone_number,u_nickname from t_users
-		where u_name=#{uName} and u_password=#{uPassword}
+		select uid,uname,password,school,stu_number,stu_name,telephone,email,sex,uimage from user
+		where uname=#{uname} and password=#{password}
 	</select>
 	<!-- 注册 -->
 	<insert id="regist" parameterType="com.house.entity.Users">

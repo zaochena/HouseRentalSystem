@@ -21,20 +21,20 @@ public class HouseController {
 	@Autowired
 	private IHouserService service;
 	
-	@RequestMapping("/findUserHouse")
-	@ResponseBody
-	public UserHouseData houseByUser(HttpServletRequest request,int page,int limit) {
-		Page p = new Page();
-		Users u = (Users) request.getSession().getAttribute("loginUser");
-		String publisher = u.getuNickName();
-		p.setPublisher(publisher);
-		p.setLimit(limit);
-		p.setPage((page - 1) * limit);
-		List<House> list = service.findHouseByUser(p);
-		System.out.println(list);
-		UserHouseData data = new UserHouseData(0, "200", list.size(), list);
-		return data;
-	}
+//	@RequestMapping("/findUserHouse")
+//	@ResponseBody
+//	public UserHouseData houseByUser(HttpServletRequest request,int page,int limit) {
+//		Page p = new Page();
+//		Users u = (Users) request.getSession().getAttribute("loginUser");
+//		String publisher = u.getuNickName();
+//		p.setPublisher(publisher);
+//		p.setLimit(limit);
+//		p.setPage((page - 1) * limit);
+//		List<House> list = service.findHouseByUser(p);
+//		System.out.println(list);
+//		UserHouseData data = new UserHouseData(0, "200", list.size(), list);
+//		return data;
+//	}
 	
 	@RequestMapping("/deleteUserHouse")
 	@ResponseBody
