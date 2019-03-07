@@ -82,30 +82,30 @@
                         <div class="layui-form-item">
                             <label class="layui-form-label">用户名</label>
                             <div class="layui-input-block">
-                                <input type="text" name="uName" required  lay-verify="required" placeholder="请输入用户名" autocomplete="off" class="layui-input">
+                                <input type="text" name="uname" required  lay-verify="required" placeholder="请输入用户名" autocomplete="off" class="layui-input">
                             </div>
                         </div>
                         <div class="layui-form-item">
                             <label class="layui-form-label">密码</label>
                             <div class="layui-input-block">
-                                <input type="text" name="uPassword" required  lay-verify="required" placeholder="请输入密码" autocomplete="off" class="layui-input">
+                                <input type="password" name="password" required  id="registPassword" lay-verify="required" placeholder="请输入密码" autocomplete="off" class="layui-input">
                             </div>
                         </div>
                         <div class="layui-form-item">
                             <label class="layui-form-label">手机号</label>
                             <div class="layui-input-block">
-                                <input type="text" name="uPhoneNumber" required  lay-verify="required" placeholder="注册后不能修改" autocomplete="off" class="layui-input">
+                                <input type="text" name="telephone" required  lay-verify="required" placeholder="注册后不能修改" autocomplete="off" class="layui-input">
                             </div>
                         </div>
-                        <div class="layui-form-item">
+<%--                        <div class="layui-form-item">
                             <label class="layui-form-label">昵称</label>
                             <div class="layui-input-block">
                                 <input type="text" name="uNickName" required  lay-verify="required" placeholder="注册后不能修改" autocomplete="off" class="layui-input">
                             </div>
-                        </div>
+                        </div>--%>
                     </form>
                     <div class="layui-form-item">
-                        <input type="submit" class="layui-btn layui-btn-fluid layui-btn-radius layui-btn-normal regist-btn" value="立即注册" />
+                        <input type="submit" id="registSubmit" class="layui-btn layui-btn-fluid layui-btn-radius layui-btn-normal regist-btn" value="立即注册" />
                     </div>
                 </div>
             </div>
@@ -171,6 +171,7 @@
 <footer>
     <p>Young项目组</p>
 </footer>
+
 <script>
     layui.use(['element', 'carousel','layer','form'], function () {
         var element = layui.element,
@@ -178,7 +179,7 @@
             $ = layui.jquery,
             layer = layui.layer,
             form = layui.form;
-        
+
         var layer_index;
         carousel.render({
             elem:"#bg-item",
@@ -199,9 +200,9 @@
             $('.list-item li').removeClass('click-this');
             $(this).addClass('click-this');
         });
-        
-        $('.regist-btn').click(function () {
-        	if($("input[name='uName']").val()!=""&&$("input[name='uPassword']").val()!=""&&$("input[name='uPhoneNumber']").val()!=""&&$("input[name='uNickName']").val()!=""){
+
+        $('#registSubmit').click(function () {
+        	if($("input[name='uname']").val()!=""&&$("input[id='registPassword']").val()!=""&&$("input[name='telephone']").val()!=""){
 	            $.post("regist",$('.form').serialize(),function (res) {
 	            	console.log(res)
 	                if(res=='OK'){
@@ -209,14 +210,14 @@
 	                    layer.alert("注册成功",{icon:1,time:2000});
 	                    $('.form')[0].reset();
 	                }else{
-	                    layer.msg("注册失败,用户名以存在");
+	                    layer.msg("注册失败,用户名已存在");
 	                }
 	            })
         	}else{
         		layer.msg("请填写所有表单");
         	}
         });
-        
+
        form.on("submit(login)",function(){
     	   $.post("login",$('#login').serialize(),function (res) {
     	   		if(res=="OK"){
@@ -225,7 +226,7 @@
     	   			layer.msg("用户名或者密码错误");
     	   		}
     	   });
-    	  return false; 
+    	  return false;
        });
     });
 </script>

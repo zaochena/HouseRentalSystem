@@ -21,11 +21,11 @@ public interface UserMapper {
 	 * 修改密码
 	 * @return
 	 */
-	public int updateUserPwd(User users);
+	public int updateUserPwd(User user);
 	/**
 	 * 检查旧密码
 	 * @param oldPwd
 	 * @return
 	 */
-	public User checkOldPwd(User users);
+	public User checkOldPwd(User user);
 }
