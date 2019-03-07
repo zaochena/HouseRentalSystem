@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.house.entity.House;
-import com.house.entity.Users;
+import com.house.entity.User;
 import com.house.service.IHouserService;
 import com.house.service.IUserService;
 
@@ -45,12 +45,12 @@ public class UserController {
 	@RequestMapping("/updateUserPwd")
 	@ResponseBody
 	public String updateUserPwd(String id,String newPwd,String oldPwd) {
-		Users oldUser = new Users();
+		User oldUser = new User();
 		oldUser.setUid(Integer.parseInt(id));
 		oldUser.setPassword(oldPwd);
-		Users checkUser = service.checkOldPwd(oldUser);
+		User checkUser = service.checkOldPwd(oldUser);
 		if(checkUser!=null) {
-			Users newUser = new Users();
+			User newUser = new User();
 			newUser.setUid(Integer.parseInt(id));
 			newUser.setPassword(newPwd);
 			int n = service.updateUserPwd(newUser);

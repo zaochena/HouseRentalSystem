@@ -1,29 +1,29 @@
 package com.house.service;
 
-import com.house.entity.Users;
+import com.house.entity.User;
 
 public interface IUserService {
 	/**
 	 *  用户登录
 	 * @return
 	 */
-	public Users login(Users user);
+	public User login(User user);
 	/**
 	 * 用户注册
 	 * 
 	 * @param user
 	 * @return
 	 */
-	public int regist(Users user);
+	public int regist(User user);
 	/**
 	 * 修改密码
 	 * @return
 	 */
-	public int updateUserPwd(Users users);
+	public int updateUserPwd(User user);
 	/**
 	 * 检查旧密码
-	 * @param users
+	 * @param user
 	 * @return
 	 */
-	public Users checkOldPwd(Users users);
+	public User checkOldPwd(User user);
 }

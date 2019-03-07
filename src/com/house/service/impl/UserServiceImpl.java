@@ -4,7 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.house.dao.UserMapper;
-import com.house.entity.Users;
+import com.house.entity.User;
 import com.house.service.IUserService;
 
 @Service
@@ -14,22 +14,22 @@ public class UserServiceImpl implements IUserService{
 	private UserMapper mapper;
 	
 	@Override
-	public Users login(Users user) {
+	public User login(User user) {
 		return mapper.login(user);
 	}
 
 	@Override
-	public int regist(Users user) {
+	public int regist(User user) {
 		return mapper.regist(user);
 	}
 
 	@Override
-	public int updateUserPwd(Users users) {
-		return mapper.updateUserPwd(users);
+	public int updateUserPwd(User user) {
+		return mapper.updateUserPwd(user);
 	}
 
 	@Override
-	public Users checkOldPwd(Users users) {
-		return mapper.checkOldPwd(users);
+	public User checkOldPwd(User user) {
+		return mapper.checkOldPwd(user);
 	}
 }

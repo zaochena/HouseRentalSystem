@@ -1,16 +1,14 @@
 package com.house.controller;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
-
-import org.apache.log4j.Logger;
+import com.house.entity.User;
+import com.house.service.IUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.house.entity.Users;
-import com.house.service.IUserService;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 @Controller
 public class LoginController {
@@ -20,10 +18,10 @@ public class LoginController {
 	@RequestMapping("/login")
 	@ResponseBody
 	public String toCustomerPage(String username,String password,HttpServletRequest req ) {
-		Users user = new Users();
+		User user = new User();
 		user.setUname(username);
 		user.setPassword(password);
-		Users loginUser = mapper.login(user);
+		User loginUser = mapper.login(user);
 		if(loginUser!=null) {
 			req.getSession().setAttribute("loginUser", loginUser);
 			return "OK";
@@ -40,7 +38,7 @@ public class LoginController {
 	
 	@RequestMapping("/regist")
 	@ResponseBody
-	public String regist(Users user) {
+	public String regist(User user) {
 		int regist;
 		try {
 			regist = mapper.regist(user);

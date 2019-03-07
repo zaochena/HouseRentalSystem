@@ -7,7 +7,7 @@ import javax.servlet.http.HttpSession;
 import org.springframework.web.servlet.HandlerInterceptor;
 
 import com.house.entity.Admin;
-import com.house.entity.Users;
+import com.house.entity.User;
 
 public class UserInterceptor implements HandlerInterceptor {
 
@@ -18,6 +18,7 @@ public class UserInterceptor implements HandlerInterceptor {
 		response.setCharacterEncoding("utf-8");
 		String url = request.getRequestURL().toString();
 
+		//如果url正确，则能通过此拦截器
 		if (url.indexOf("toIndexPage") >= 0 || url.indexOf("login") >= 0 || url.indexOf("regist") >= 0
 				|| url.indexOf("toDetailsPage") >= 0 || url.indexOf("findHouseByLike") >= 0
 				|| url.indexOf("findHousrOrderByAsc") >= 0 || url.indexOf("findHousrOrderByDesc") >= 0
@@ -25,7 +26,7 @@ public class UserInterceptor implements HandlerInterceptor {
 			return true;
 		}
 		HttpSession session = request.getSession();
-		Users u = (Users) session.getAttribute("loginUser");
+		User u = (User) session.getAttribute("loginUser");
 		Admin admin = (Admin) session.getAttribute("Admin");
 		if (u != null || admin != null) {
 			return true;

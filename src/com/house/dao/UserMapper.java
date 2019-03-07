@@ -1,6 +1,6 @@
 package com.house.dao;
 
-import com.house.entity.Users;
+import com.house.entity.User;
 
 public interface UserMapper {
 	/**
@@ -8,7 +8,7 @@ public interface UserMapper {
 	 * 
 	 * @return
 	 */
-	public Users login(Users user);
+	public User login(User user);
 
 	/**
 	 * 用户注册
@@ -16,16 +16,16 @@ public interface UserMapper {
 	 * @param user
 	 * @return
 	 */
-	public int regist(Users user);
+	public int regist(User user);
 	/**
 	 * 修改密码
 	 * @return
 	 */
-	public int updateUserPwd(Users users);
+	public int updateUserPwd(User users);
 	/**
 	 * 检查旧密码
 	 * @param oldPwd
 	 * @return
 	 */
-	public Users checkOldPwd(Users users);
+	public User checkOldPwd(User users);
 }
