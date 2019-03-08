@@ -15,7 +15,7 @@
 		p:driverClassName="com.mysql.jdbc.Driver"
 		p:url="jdbc:mysql://127.0.0.1:3306/houserentalsystem-master?characterEncoding=utf-8"
 		p:username="root"
-		p:password=""
+		p:password="zjtlq1314."
 	/>
 	
 	<!-- 事务管理器 -->

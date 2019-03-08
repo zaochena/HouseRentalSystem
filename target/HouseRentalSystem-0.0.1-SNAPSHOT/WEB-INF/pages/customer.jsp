@@ -12,7 +12,7 @@
 <body>
 <div class="layui-layout layui-layout-admin">
     <div class="layui-header">
-        <a href="welcome.html" target="iframe">
+        <a href="welcome.jsp" target="iframe">
             <div class="layui-logo">
                 <h2>用户个人中心</h2>
             </div>
@@ -20,7 +20,7 @@
         <ul class="layui-nav layui-layout-right" lay-filter="layadmin-layout-right">
             <li class="layui-nav-item" lay-unselect="" style="">
                 <a href="javascript:;">
-                    <cite>${loginUser.uNickName}，欢迎回来</cite>
+                    <cite>${loginUser.uname}，欢迎回来</cite>
                     <span class="layui-nav-more"></span></a>
                 <dl class="layui-nav-child layui-anim layui-anim-upbit">
                     <dd style="text-align: center;"><a href="updatepwd.html" target="iframe">修改密码</a></dd>

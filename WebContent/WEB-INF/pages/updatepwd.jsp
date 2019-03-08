@@ -16,7 +16,7 @@
         <div class="layui-form-item">
             <label class="layui-form-label">原密码</label>
             <div class="layui-input-inline">
-            	<input type="hidden" name="id" value="${loginUser.uID }">
+            	<input type="hidden" name="id" value="${loginUser.uid }">
                 <input type="password" name="oldPwd" required lay-verify="required" placeholder="原密码" autocomplete="off"
                        class="layui-input">
             </div>
