@@ -28,4 +28,9 @@ public interface UserMapper {
 	 * @return
 	 */
 	public User checkOldPwd(User user);
+	/*
+
+	验证信息
+	 */
+	public int validationInfo(User user);
 }

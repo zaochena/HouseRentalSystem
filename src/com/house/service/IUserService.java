@@ -1,5 +1,7 @@
 package com.house.service;
 
+import com.house.entity.Course;
+import com.house.entity.CourseSelected;
 import com.house.entity.User;
 
 public interface IUserService {
@@ -26,4 +28,15 @@ public interface IUserService {
 	 * @return
 	 */
 	public User checkOldPwd(User user);
+	/**
+	 * 验证信息
+	 */
+	public int validationInfo(User user);
+
+	/**
+	 * 获取课程信息
+	 * @return
+	 */
+	public CourseSelected[] getInfo();
+	public Course selectCourseName(Course course);
 }

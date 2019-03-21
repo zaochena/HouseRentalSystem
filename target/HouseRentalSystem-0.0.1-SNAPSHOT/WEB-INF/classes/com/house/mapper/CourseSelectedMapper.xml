@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.house.dao.CourseMapper">
+    <!--获取信息-->
+    <select id="selectInfo" resultType="com.house.entity.CourseSelected" parameterType="com.house.entity.CourseSelected">
+       select course_code,uname,mark from course_selected
+    </select>
+    <select id="selectCourseName" resultType="com.house.entity.Course" parameterType="com.house.entity.Course">
+        select course_name from course WHERE course_code=#{course_code}
+    </select>
+</mapper>

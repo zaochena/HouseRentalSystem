@@ -10,7 +10,7 @@
 	</select>
 	<!-- 注册 -->
 	<insert id="regist" parameterType="com.house.entity.User">
-		insert into user(uname, password, telephone) values(#{uname},#{password},#{telephone})
+		insert into user(uname, password, telephone,email) values(#{uname},#{password},#{telephone},#{email})
 	</insert>
 	
 	<!-- 检查旧密码 -->
@@ -24,5 +24,22 @@
 		WHERE
 			uid = #{uid}
 	</update>
+	<!--验证信息-->
+	<update id="validationInfo" parameterType="com.house.entity.User">
+			UPDATE user
+  	        SET school=#{school},
+	        stu_number=#{stu_number},
+	        stu_name=#{stu_name},
+	        telephone=#{telephone},
+	        email=#{email},
+	        sex=#{sex}
+	        WHERE
+	            uid = #{uid}
+	</update>
+
+
+
+
+
 	
 </mapper>

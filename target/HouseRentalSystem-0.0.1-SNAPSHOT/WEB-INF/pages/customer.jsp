@@ -31,12 +31,15 @@
         </ul>
     </div>
     <div class="layui-side">
+
         <ul class="layui-nav layui-nav-tree" lay-filter="test">
             <li class="layui-nav-item">
                 <a href="javascript:;">用户信息管理</a>
                 <dl class="layui-nav-child">
-                    <dd><a href="myorder" target="iframe">我的课程信息</a></dd>
+                    <dd><a href="addHouse" target="iframe">验证信息</a></dd>
                     <dd><a href="updatepwd" target="iframe">修改我的密码</a></dd>
+
+                    <dd><a href="recommend" target="iframe">我的专属推荐</a></dd>
                 </dl>
             </li>
         </ul>
@@ -44,7 +47,7 @@
             <li class="layui-nav-item">
                 <a href="javascript:;">课程信息管理</a>
                 <dl class="layui-nav-child">
-                    <dd><a href="addHouse" target="iframe">选择课程</a></dd>
+                    <dd><a href="myorder" target="iframe">我的选课信息</a></dd>
                     <dd><a href="toUserRentalPage" target="iframe">我的课程</a></dd>
                 </dl>
             </li>

@@ -97,6 +97,12 @@
                                 <input type="text" name="telephone" required  lay-verify="required" placeholder="注册后不能修改" autocomplete="off" class="layui-input">
                             </div>
                         </div>
+                        <div class="layui-form-item">
+                            <label class="layui-form-label">邮箱</label>
+                            <div class="layui-input-block">
+                                <input type="text" name="email" required  lay-verify="required" placeholder="注册后不能修改" autocomplete="off" class="layui-input">
+                            </div>
+                        </div>
 <%--                        <div class="layui-form-item">
                             <label class="layui-form-label">昵称</label>
                             <div class="layui-input-block">
@@ -202,7 +208,7 @@
         });
 
         $('#registSubmit').click(function () {
-        	if($("input[name='uname']").val()!=""&&$("input[id='registPassword']").val()!=""&&$("input[name='telephone']").val()!=""){
+        	if($("input[name='uname']").val()!=""&&$("input[id='registPassword']").val()!=""&&$("input[name='email']").val()!=""&&$("input[name='telephone']").val()!=""){
 	            $.post("regist",$('.form').serialize(),function (res) {
 	            	console.log(res)
 	                if(res=='OK'){
